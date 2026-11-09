@@ -1,11 +1,20 @@
-# Awesome Subscription Data Migration & Import
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Subscription Data Migration Banner" width="100%" />
+</p>
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](file:///C:/Users/hp/Documents/Projects/Awesome-Subscription-Data-Migration-Import/LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ishandutta2007/Awesome-Subscription-Data-Migration-Import/pulls)
-[![GitHub stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Subscription-Data-Migration-Import?style=social)](https://github.com/ishandutta2007/Awesome-Subscription-Data-Migration-Import/stargazers)
+# 🚀 Awesome Subscription Data Migration & Import
 
-> A curated list of top **Subscription Data Migration & Import** platforms, database migration utilities, and automated ELT pipelines — featuring commercial SaaS/hosted solutions and top open-source tools for moving subscription records, customers, payment tokens, schemas, and billing histories between systems with zero data loss.
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://awesome.re/badge.svg" alt="Awesome List" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg" alt="License: CC0-1.0" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Subscription-Data-Migration-Import/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Subscription-Data-Migration-Import/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Subscription-Data-Migration-Import?style=social" alt="GitHub stars" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
+
+> 🔄 A curated list of top **Subscription Data Migration & Import** platforms, database migration utilities, and automated ELT pipelines — featuring commercial SaaS/hosted solutions and top open-source tools for moving subscription records, customers, payment tokens, schemas, and billing histories between systems with zero data loss.
 
 🌟 *Star this repository if you find it helpful for your cloud data migration and subscription architecture workflows!* 🌟
 
@@ -13,29 +22,31 @@
 
 ## 📋 Table of Contents
 
-- [Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
-- [SaaS / Hosted Platforms](#-saas--hosted-platforms)
-- [Open-Source Software](#-open-source-software)
-- [Comparison at a Glance](#-comparison-at-a-glance)
-- [Key Migration Strategies](#-key-migration-strategies)
-- [Contributing](#-contributing)
-- [License](#-license)
+- [🌐 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [🟦 SaaS / Hosted Platforms](#-saas--hosted-platforms)
+- [🟩 Open-Source Software](#-open-source-software)
+- [📊 Comparison at a Glance](#-comparison-at-a-glance)
+- [💡 Key Migration Strategies](#-key-migration-strategies)
+- [📈 Star History](#-star-history)
+- [💖 Support & Sponsorship](#-support--sponsorship)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
 ## 🌐 Sector Overview & Market Dynamics
 
-The global data migration and integration market is valued between **$10 billion and $15 billion**, expanding at a robust Compound Annual Growth Rate (CAGR) of **12.5% to 17%** as enterprises modernize legacy infrastructure toward AI-ready cloud databases and multi-cloud SaaS platforms.
+📈 The global data migration and integration market is valued between **$10 billion and $15 billion**, expanding at a robust Compound Annual Growth Rate (CAGR) of **12.5% to 17%** as enterprises modernize legacy infrastructure toward AI-ready cloud databases and multi-cloud SaaS platforms.
 
-The sector is **moderately to highly fragmented**: while hyperscalers (AWS, Microsoft Azure, Google Cloud) command foundational database-to-cloud pathways, specialized data pipeline vendors (Fivetran, Informatica, Matillion) and billing-specific migration teams (Chargebee) hold critical niches, preventing a single "winner-take-all" outcome due to diverse legacy schemas, custom APIs, and stringent PCI-DSS payment token portability constraints.
+🧩 The sector is **moderately to highly fragmented**: while hyperscalers (AWS, Microsoft Azure, Google Cloud) command foundational database-to-cloud pathways, specialized data pipeline vendors (Fivetran, Informatica, Matillion) and billing-specific migration teams (Chargebee) hold critical niches, preventing a single "winner-take-all" outcome due to diverse legacy schemas, custom APIs, and stringent PCI-DSS payment token portability constraints.
 
 ---
 
 ## 🟦 SaaS / Hosted Platforms
 
-Commercial, cloud-hosted subscription data migration, database replication, and enterprise ELT platforms. Ranked in descending order of company scale (market capitalization / enterprise valuation / annual revenue).
+💼 Commercial, cloud-hosted subscription data migration, database replication, and enterprise ELT platforms. Ranked in descending order of company scale (market capitalization / enterprise valuation / annual revenue).
 
-| Platform | Company Scale (Valuation / Revenue) | Starting Paid Tier Pricing | Free Tier Limit / Trial Policy | Best For |
+| 🏢 Platform | 💰 Company Scale (Valuation / Revenue) | 🏷️ Starting Paid Tier Pricing | 🎁 Free Tier Limit / Trial Policy | 🎯 Best For |
 |---|---|---|---|---|
 | **[AWS Database Migration Service (DMS)](https://aws.amazon.com/dms/)** | **$184B+ ARR** (AWS cloud run rate; Amazon ~$2.3T Market Cap) | Pay-as-you-go from **$0.018/hour** (Single-AZ `dms.t3.micro` instance) + storage ($0.115/GB-mo) | **750 hours/month** of Single-AZ `dms.t3.micro` + 50 GB storage free for 12 months (or $100–$200 promo credits for new accounts) | Migrating underlying relational subscription databases (MySQL, Postgres, Oracle, SQL Server) to AWS with CDC |
 | **[CloudEndure / AWS MGN](https://aws.amazon.com/application-migration-service/)** | **$184B+ ARR** (AWS cloud run rate; Amazon ~$2.3T Market Cap) | Standard AWS resource charges after trial (EBS, EC2 replication instances); MGN is free for first 90 days per server | **90 days free per replicated server** to execute migration; no software charges during active 90-day replication window | Lift-and-shift live server migration of entire self-hosted billing engines and application servers across clouds |
@@ -51,11 +62,11 @@ Commercial, cloud-hosted subscription data migration, database replication, and 
 
 ## 🟩 Open-Source Software
 
-Self-hosted, community-driven tools for migrating subscription data, running event-driven change data capture (CDC), executing columnar data transfers, or deploying an open-source billing core with native migration primitives.
+🛠️ Self-hosted, community-driven tools for migrating subscription data, running event-driven change data capture (CDC), executing columnar data transfers, or deploying an open-source billing core with native migration primitives.
 
 Repos are sorted in **descending order by GitHub star count**.
 
-| Project | GitHub Stars Badge | Primary Stack | License | Description & Migration Utility |
+| 📦 Project | ⭐ Stars Badge | 💻 Primary Stack | 📜 License | 📝 Description & Migration Utility |
 |---|---|---|---|---|
 | **[Airbyte](https://github.com/airbytehq/airbyte)** | [![GitHub stars](https://img.shields.io/github/stars/airbytehq/airbyte?style=social&color=white)](https://github.com/airbytehq/airbyte/stargazers) | Java / Python / Docker | MIT / ELv2 | Industry-standard open-source ELT movement engine with 700+ connectors. Extracts subscription records from billing APIs and databases and syncs them directly into Postgres, Snowflake, or ClickHouse. |
 | **[Debezium](https://github.com/debezium/debezium)** | [![GitHub stars](https://img.shields.io/github/stars/debezium/debezium?style=social&color=white)](https://github.com/debezium/debezium/stargazers) | Java / Apache Kafka | Apache-2.0 | Distributed platform for Change Data Capture (CDC). Streams low-latency row-level changes from MySQL, Postgres, and MongoDB subscription tables into message brokers without taking the source offline. |
@@ -73,7 +84,7 @@ Repos are sorted in **descending order by GitHub star count**.
 
 ## 📊 Comparison at a Glance
 
-| Tool | License | Type | Subscription Semantics | Continuous Replication (CDC) | Self-Hosted | Primary Migration Use Case |
+| 🛠️ Tool | 📜 License | 🏷️ Type | 🔄 Subscription Semantics | ⚡ Continuous Replication (CDC) | 🏠 Self-Hosted | 🎯 Primary Migration Use Case |
 |---|---|---|:---:|:---:|:---:|---|
 | **AWS DMS** | Proprietary | Managed DB Service | ❌ | ✅ | ❌ | Live database schema and table migration to AWS Aurora / RDS |
 | **Informatica CDI** | Proprietary | Enterprise iPaaS / ETL | ❌ | ✅ | ❌ | Complex enterprise subscription transformations and ERP loading |
@@ -96,26 +107,42 @@ Repos are sorted in **descending order by GitHub star count**.
 
 When transferring subscription, customer, and recurring billing data between platforms, consider the three core pillars:
 
-1. **Payment Token Portability (PCI-DSS Compliance):**  
+1. **🔐 Payment Token Portability (PCI-DSS Compliance):**  
    Plain-text credit card numbers cannot be extracted from modern gateways. You must coordinate a PCI-compliant vault-to-vault token migration between payment processors (e.g., Stripe, Braintree, Adyen, Authorize.Net) before importing active subscription records.
-2. **Catalog & Plan Hierarchy Mapping:**  
+2. **📐 Catalog & Plan Hierarchy Mapping:**  
    Map pricing tiers, billing intervals (monthly, quarterly, annual), add-ons, and grace-period rules into the destination catalog schema before streaming customer states.
-3. **Mid-Cycle Proration & State Preservation:**  
+3. **⏱️ Mid-Cycle Proration & State Preservation:**  
    Ensure that subscriptions imported into the new system are seeded with exact `current_period_start`, `current_period_end`, and `trial_end` timestamps to prevent premature charges or accidental invoice duplicates.
+
+---
+
+## 📈 Star History
+
+[![Star History Chart](https://www.star-history.com/svg?repos=ishandutta2007/Awesome-Subscription-Data-Migration-Import&type=date&legend=top-left)](https://www.star-history.com/#ishandutta2007/Awesome-Subscription-Data-Migration-Import&type=date&legend=top-left)
+
+---
+
+## 💖 Support & Sponsorship
+
+Thank you so much for exploring and using this curated list! 🌟 If this repository has saved you engineering hours, helped streamline your migration roadmap, or served as a valuable reference, please consider showing your support:
+
+- ⭐ **Star** this repository on GitHub to help others discover it.
+- 🍴 **Fork** and share it with your data engineering, fintech, or DevOps teammates.
+- ☕ **Buy me a coffee / Sponsor the project**: Contributions directly fuel active maintenance and high-quality open-source research. Support the author via the [GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007).
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are very welcome! If you know of an open-source tool, data connector, or migration engine that should be included in this repository:
+🤝 Contributions are very welcome! If you know of an open-source tool, data connector, or migration engine that should be included in this repository:
 
-1. Fork this repository.
-2. Add your project under the appropriate section with its name, URL, GitHub star badge, tech stack, and primary migration use case.
-3. Ensure the project is active (commits or releases within the last 12 months) and follows the established formatting.
-4. Submit a Pull Request!
+1. 🍴 Fork this repository.
+2. 📝 Add your project under the appropriate section with its name, URL, GitHub star badge, tech stack, and primary migration use case.
+3. ✨ Ensure the project is active (commits or releases within the last 12 months) and follows the established formatting.
+4. 🚀 Submit a Pull Request!
 
 ---
 
 ## 📄 License
 
-This repository and curated list are licensed under [CC0 1.0 Universal (Public Domain)](file:///C:/Users/hp/Documents/Projects/Awesome-Subscription-Data-Migration-Import/LICENSE). Individual software projects retain their respective licenses.
+⚖️ This repository and curated list are licensed under [CC0 1.0 Universal (Public Domain)](file:///C:/Users/hp/Documents/Projects/Awesome-Subscription-Data-Migration-Import/LICENSE). Individual software projects retain their respective licenses.
