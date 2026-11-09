@@ -1,151 +1,121 @@
-# Awesome-Subscription-Data-Migration-Import
-
 # Awesome Subscription Data Migration & Import
 
-> A curated list of top Subscription Data Migration and Import platforms — both SaaS/Hosted commercial solutions and open-source alternatives for moving subscription records, customers, and billing history between systems.
-> 🌟 Star this repo if you find it useful! 🌟
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](file:///C:/Users/hp/Documents/Projects/Awesome-Subscription-Data-Migration-Import/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ishandutta2007/Awesome-Subscription-Data-Migration-Import/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Subscription-Data-Migration-Import?style=social)](https://github.com/ishandutta2007/Awesome-Subscription-Data-Migration-Import/stargazers)
+
+> A curated list of top **Subscription Data Migration & Import** platforms, database migration utilities, and automated ELT pipelines — featuring commercial SaaS/hosted solutions and top open-source tools for moving subscription records, customers, payment tokens, schemas, and billing histories between systems with zero data loss.
+
+🌟 *Star this repository if you find it helpful for your cloud data migration and subscription architecture workflows!* 🌟
 
 ---
 
 ## 📋 Table of Contents
 
+- [Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
 - [SaaS / Hosted Platforms](#-saas--hosted-platforms)
-  - [Chargebee Migration Services](#chargebee-migration-services)
-  - [AWS Database Migration Service (DMS)](#aws-database-migration-service-dms)
-  - [CloudEndure (AWS MGN)](#cloudendure-aws-mgn)
-  - [Fivetran](#fivetran)
-  - [Matillion](#matillion)
-  - [Informatica Cloud Data Integration](#informatica-cloud-data-integration)
-  - [Hevo Data](#hevo-data)
-  - [Stitch Data](#stitch-data)
-  - [BitTitan MigrationWiz](#bittitan-migrationwiz)
 - [Open-Source Software](#-open-source-software)
-  - [Kill Bill (Migration Capabilities)](#kill-bill-migration-capabilities)
-  - [Airbyte](#airbyte)
-  - [Bani](#bani)
-  - [Loafer](#loafer)
-  - [Pentaho Data Integration (Community)](#pentaho-data-integration-community)
 - [Comparison at a Glance](#-comparison-at-a-glance)
+- [Key Migration Strategies](#-key-migration-strategies)
 - [Contributing](#-contributing)
+- [License](#-license)
+
+---
+
+## 🌐 Sector Overview & Market Dynamics
+
+The global data migration and integration market is valued between **$10 billion and $15 billion**, expanding at a robust Compound Annual Growth Rate (CAGR) of **12.5% to 17%** as enterprises modernize legacy infrastructure toward AI-ready cloud databases and multi-cloud SaaS platforms.
+
+The sector is **moderately to highly fragmented**: while hyperscalers (AWS, Microsoft Azure, Google Cloud) command foundational database-to-cloud pathways, specialized data pipeline vendors (Fivetran, Informatica, Matillion) and billing-specific migration teams (Chargebee) hold critical niches, preventing a single "winner-take-all" outcome due to diverse legacy schemas, custom APIs, and stringent PCI-DSS payment token portability constraints.
 
 ---
 
 ## 🟦 SaaS / Hosted Platforms
 
-Commercial, cloud-hosted Subscription Data Migration and Import platforms. These are not open-source but are included as reference points for feature comparison.
+Commercial, cloud-hosted subscription data migration, database replication, and enterprise ELT platforms. Ranked in descending order of company scale (market capitalization / enterprise valuation / annual revenue).
 
-### Chargebee Migration Services
-**Type:** Billing-specific subscription data migration  
-Chargebee provides dedicated migration services for moving customers, subscriptions, credit notes, and current-term invoices from an existing billing system into Chargebee . Migration is classified into **Data Migration** (records) and **Card Migration** (payment token mapping), which must be performed sequentially—Card Migration first if you are also changing gateways . Self-migration is possible via Bulk Operations (CSV upload) or the Import API, though Chargebee recommends its Migration Team for smoother execution . Migration can complete in about 10 days once data is provided in the required format .  
-**Best for:** Teams already committed to Chargebee wanting structured, vendor-assisted migration of subscription records and payment tokens.
-
-### AWS Database Migration Service (DMS)
-**Type:** Managed database and analytics migration  
-AWS DMS is a managed service for migrating databases and analytics workloads to AWS with minimal downtime—the source remains operational during migration . It supports homogeneous (Oracle to Oracle) and heterogeneous migrations (Oracle/SQL Server to Aurora), with continuous replication and schema conversion (DMS SC) for stored procedures and secondary objects . Most replication tasks set up in under 10 minutes; pricing is based on replication instances and log storage, with data transfer free . **Note:** Either source or target must reside in RDS or EC2; on-premises-to-on-premises replication is not supported .  
-**Best for:** Organizations migrating subscription databases (MySQL, PostgreSQL, SQL Server) to AWS or between AWS databases, with schema conversion for heterogeneous targets.
-
-### CloudEndure (AWS MGN)
-**Type:** Block-level live migration  
-CloudEndure (now AWS Application Migration Service) provides continuous block-level replication and application stack orchestration for live migrations from any source (VMware, Hyper-V, physical, cloud) to AWS, GCP, Azure, or other clouds . Migration is agent-based, with a single token used on both source and target . **Important:** CloudEndure Migration was restricted starting June 30, 2022 in favor of AWS MGN .  
-**Best for:** Lift-and-shift migration of entire subscription platform servers (not just data) between environments or clouds, with minimal downtime.
-
-### Fivetran
-**Type:** Automated data pipeline with 750+ connectors  
-Fivetran is a managed ELT platform for replicating data from SaaS applications, databases, and files into warehouses. It offers over 750 connectors, with five paths for non-standard sources: Managed Connectors, File Connectors (CSV, JSON, Parquet, XML), Database Connectors (log-based CDC), Connector SDK, and Partner Connectors . Fivetran applies a sync-all strategy, automatically replicating all accessible objects and adapting to schema changes .  
-**Best for:** Teams wanting automated, maintenance-free replication of subscription data from billing platforms and databases into a data warehouse for analytics.
-
-### Matillion
-**Type:** Agentic data integration and ETL  
-Matillion (Maia) provides a Data Productivity Cloud with 150+ connectors and AI agents that plan, build, test, and fix data pipelines . Its **Migration Agent** converts legacy ETL pipelines from 14 platforms to modern cloud data warehouses, compressing multi-quarter migrations into weeks . Customers report 2/3 reduction in ETL migration effort .  
-**Best for:** Organizations migrating existing ETL pipelines alongside subscription data, particularly those moving from legacy on-premises ETL tools to cloud warehouses.
-
-### Informatica Cloud Data Integration
-**Type:** Enterprise data integration with mapping and taskflows  
-Informatica Cloud provides mapping tasks (complex transformations), data transfer tasks (simple source-to-target), and data loader tasks (bulk ingestion with schema drift support) . Taskflows run multiple tasks serially or in parallel. Transformation logic can be pushed to source, target, or both for performance .  
-**Best for:** Enterprises with complex subscription data transformation requirements needing a mature, governed integration platform.
-
-### Hevo Data
-**Type:** No-code data pipeline with 170+ sources  
-Hevo provides no-code pipelines connecting databases, SaaS applications, and files to warehouses like BigQuery, Redshift, and Snowflake . Features include near real-time ingestion, Python or drag-and-drop transformations, automatic schema mapping, and live monitoring with data spike alerts .  
-**Best for:** Teams wanting a no-code pipeline to move subscription data from billing systems into a warehouse with minimal engineering effort.
-
-### Stitch Data
-**Type:** Volume-based ELT with raw data philosophy  
-Stitch (part of Talend) replicates data from databases, APIs, and files to warehouses with a philosophy of keeping data as close to its original form as possible . Replication has three phases: Extract, Prepare (light transformations for destination compatibility), and Load. It does not perform arbitrary transformations—users transform data after loading .  
-**Best for:** Teams wanting raw subscription data loaded into their warehouse for downstream transformation with their own tools.
-
-### BitTitan MigrationWiz
-**Type:** Mailbox and document migration  
-MigrationWiz specializes in migrating mailboxes, archives, and documents (OneDrive, Google Drive) between platforms, with a User Migration Bundle covering all data types for $17.50 . It now includes Microsoft Teams private chat migration. **Note:** This is not subscription data migration—it is user content migration, relevant only if subscription platform users' emails/documents are also being moved.  
-**Best for:** Organizations migrating user mailboxes and documents as part of a broader platform change, not for subscription record migration.
+| Platform | Company Scale (Valuation / Revenue) | Starting Paid Tier Pricing | Free Tier Limit / Trial Policy | Best For |
+|---|---|---|---|---|
+| **[AWS Database Migration Service (DMS)](https://aws.amazon.com/dms/)** | **$184B+ ARR** (AWS cloud run rate; Amazon ~$2.3T Market Cap) | Pay-as-you-go from **$0.018/hour** (Single-AZ `dms.t3.micro` instance) + storage ($0.115/GB-mo) | **750 hours/month** of Single-AZ `dms.t3.micro` + 50 GB storage free for 12 months (or $100–$200 promo credits for new accounts) | Migrating underlying relational subscription databases (MySQL, Postgres, Oracle, SQL Server) to AWS with CDC |
+| **[CloudEndure / AWS MGN](https://aws.amazon.com/application-migration-service/)** | **$184B+ ARR** (AWS cloud run rate; Amazon ~$2.3T Market Cap) | Standard AWS resource charges after trial (EBS, EC2 replication instances); MGN is free for first 90 days per server | **90 days free per replicated server** to execute migration; no software charges during active 90-day replication window | Lift-and-shift live server migration of entire self-hosted billing engines and application servers across clouds |
+| **[Informatica Cloud Data Integration](https://www.informatica.com/products/cloud-data-integration.html)** | **~$7.6B Market Cap** ($1.64B+ TTM Revenue; NYSE: INFA) | Custom consumption tiers via Informatica Processing Units (IPUs); entry packages start around **$2,000/month** | **Free Data Loader** (up to 20M rows or 10 compute hours/month free forever) & **30-day full-feature trial** of IDMC | Complex enterprise subscription transformations, multi-system ERP syncing, and governed corporate ETL workflows |
+| **[Fivetran](https://www.fivetran.com/)** | **~$5.6B Valuation** (~$600M ARR combined run rate with dbt Labs) | **$500/month** (Standard plan benchmark based on Monthly Active Rows) + $5/month per active connection | **Free forever plan: Up to 500,000 Monthly Active Rows (MAR)** per month with 15-minute syncs across 700+ connectors | Automated, maintenance-free replication of billing data (Stripe, Recurly, Chargebee) to Snowflake, BigQuery, or Databricks |
+| **[Chargebee Migration Services](https://www.chargebee.com/features/data-migration/)** | **~$3.5B Valuation** ($470M+ total funding raised) | Starting paid subscription tier is **$599/month** (Performance plan, billed annually) | **Free Starter plan** up to **$250,000 cumulative lifetime billing** (0.75% overage fee thereafter); assisted migration included in enterprise onboarding | End-to-end vendor-assisted migration of subscriptions, card tokens, coupons, and historical invoice balances into Chargebee |
+| **[Matillion](https://www.matillion.com/)** | **~$1.5B Valuation** (~$99M ARR run rate) | Consumption-based credit model starting at **~$500/month** (annual scale typically starts around $15,000/year) | **Developer Edition / 500 free credits** upon sign-up with access to 150+ connectors, drag-and-drop UI, and migration agents | Converting legacy ETL pipelines and migrating high-volume subscription data directly into cloud data warehouses |
+| **[Stitch Data](https://www.stitchdata.com/)** | **$60M Acquisition** (Parent Qlik Talend ARR $200M+) | Starts at **$100/month** for Standard tier (covers up to 5M monthly active rows) | **14-day free trial** with unlimited rows and integrations + 7-day historical sync grace period; no permanent free tier | Direct developer-friendly ELT loading of raw billing API records into warehouses without complex transformations |
+| **[Hevo Data](https://hevodata.com/)** | **~$48M Total Funding** (~$40M ARR estimated) | Starts at **$265/month** (Starter tier billed annually, or $299/mo billed monthly for 5M events) | **Free forever plan: Up to 1 Million events/month** (free source connectors, 1-hour sync, up to 5 users) + **14-day full trial** | No-code, automated replication of customer subscription records and transactions into cloud warehouses with automated schema mapping |
+| **[BitTitan MigrationWiz](https://www.bittitan.com/migrationwiz/)** | **~$50M ARR** (Acquired by Idera, Inc.) | **$15.00 – $17.50 per user/license** (User Migration Bundle covering mailboxes, documents, and Teams chats) | **Free evaluation trial** for MSPs/IT administrators to execute test mailbox and folder migrations; no permanent production free tier | Migrating user accounts, emails, and shared documents when subscription business domains transition between Microsoft 365 and Google Workspace |
 
 ---
 
 ## 🟩 Open-Source Software
 
-Self-hosted, community-driven Subscription Data Migration and Import tools. The open-source ecosystem for **dedicated subscription data migration** is essentially nonexistent; available tools are either billing platforms with migration capabilities or general-purpose data integration engines.
+Self-hosted, community-driven tools for migrating subscription data, running event-driven change data capture (CDC), executing columnar data transfers, or deploying an open-source billing core with native migration primitives.
 
-### Kill Bill (Migration Capabilities)
-**Stack:** Java / MySQL/MariaDB/PostgreSQL | **License:** Apache-2.0  
-Kill Bill is an open-source subscription billing platform in production since 2010 . For migration, it explicitly supports **queuing pending plan modifications** to ensure they persist and execute correctly after system migration . The platform's catalog-based architecture means subscription data (products, plans, phases, price lists) is defined declaratively and can be migrated as configuration alongside records. Payment plugins for Stripe, Braintree, and Adyen handle gateway token migration. **Limitation:** Kill Bill provides the target platform and migration primitives; it does not include a dedicated import tool for moving from other billing systems—you build the migration logic using its REST API.  
-**Best for:** Teams migrating to Kill Bill who need a platform that natively handles plan modifications across migration boundaries, accepting that the import pipeline must be built custom.
+Repos are sorted in **descending order by GitHub star count**.
 
-### Airbyte
-**Stack:** Python / Java | **License:** MIT (core)  
-Airbyte is an open-source data replication platform with **700+ connectors** for moving data from databases, SaaS applications, and files into warehouses and databases . It supports batch and CDC replication with incremental sync and schema handling. The core is open source and self-hostable; enterprise features include SSO and RBAC. For subscription migration, Airbyte can extract subscription records from a source billing system's database or API and load them into a target database or warehouse. **Limitation:** Airbyte is ELT infrastructure, not a billing-aware migration tool—it moves rows but does not understand subscription semantics (plan changes, proration, invoice relationships).  
-**Best for:** Teams wanting to extract subscription data from source systems and load it into a target database or warehouse using a maintained open-source connector library.
-
-### Bani
-**Stack:** Python / Apache Arrow | **License:** Open Source (per PyPI)  
-Bani is an open-source database migration engine using Apache Arrow as a universal columnar interchange format . It migrates schema, data, and indexes across PostgreSQL, MySQL, SQL Server, Oracle, and SQLite. Features include declarative BDL (XML/JSON) migration definitions, a Python SDK, CLI, web dashboard, and an MCP server for AI agents . The Arrow-based architecture gives N type mappers instead of N×N, enabling high-throughput columnar transfers.  
-**Best for:** Teams migrating subscription databases between relational engines (e.g., MySQL to PostgreSQL) where schema and data need to move together with minimal transformation.
-
-### Loafer
-**Stack:** Python / YAML | **License:** Open Source (per PyPI)  
-Loafer is a YAML-first ETL/ELT engine for moving and transforming data from the command line . It supports PostgreSQL, MySQL, MongoDB, SQLite, CSV, Excel, REST, and PDF sources, with SQL, custom Python, and AI-assisted transforms . Pipelines are declarative YAML files validated with Pydantic, with incremental extraction via cursor columns and local scheduling . **Limitation:** The project is early-stage; some transform paths materialize full runs, and bounded memory for very large jobs is not yet guaranteed.  
-**Best for:** Teams wanting a lightweight, declarative CLI tool for migrating subscription data from relational databases or CSV exports with custom transformation logic.
-
-### Pentaho Data Integration (Community)
-**Stack:** Java | **License:** Apache-2.0 (Community/Developer Edition)  
-Pentaho Data Integration (PDI) Community Edition is a low-code ETL platform with broad connectivity across databases, cloud platforms, and SaaS applications . It provides drag-and-drop transformation design and orchestration. **Important:** The Community Edition is free for non-production use only and lacks enterprise security, support, and some advanced connectors; production use requires Enterprise Edition .  
-**Best for:** Teams wanting a visual ETL tool for prototyping subscription data migration pipelines, with awareness that production deployment requires the paid Enterprise Edition.
+| Project | GitHub Stars Badge | Primary Stack | License | Description & Migration Utility |
+|---|---|---|---|---|
+| **[Airbyte](https://github.com/airbytehq/airbyte)** | [![GitHub stars](https://img.shields.io/github/stars/airbytehq/airbyte?style=social&color=white)](https://github.com/airbytehq/airbyte/stargazers) | Java / Python / Docker | MIT / ELv2 | Industry-standard open-source ELT movement engine with 700+ connectors. Extracts subscription records from billing APIs and databases and syncs them directly into Postgres, Snowflake, or ClickHouse. |
+| **[Debezium](https://github.com/debezium/debezium)** | [![GitHub stars](https://img.shields.io/github/stars/debezium/debezium?style=social&color=white)](https://github.com/debezium/debezium/stargazers) | Java / Apache Kafka | Apache-2.0 | Distributed platform for Change Data Capture (CDC). Streams low-latency row-level changes from MySQL, Postgres, and MongoDB subscription tables into message brokers without taking the source offline. |
+| **[Lago](https://github.com/getlago/lago)** | [![GitHub stars](https://img.shields.io/github/stars/getlago/lago?style=social&color=white)](https://github.com/getlago/lago/stargazers) | Ruby / Go / Postgres | AGPL-3.0 | Modern open-source metering and billing engine. Provides declarative APIs and CSV import flows to migrate historical subscriptions, customer wallets, coupons, and recurring plan hierarchies. |
+| **[Pentaho Kettle (PDI)](https://github.com/pentaho/pentaho-kettle)** | [![GitHub stars](https://img.shields.io/github/stars/pentaho/pentaho-kettle?style=social&color=white)](https://github.com/pentaho/pentaho-kettle/stargazers) | Java | Apache-2.0 | Veteran open-source desktop and server ETL platform. Excellent for visually designing complex schema mappings, normalizations, and data cleansing routines before loading legacy billing dumps into a new system. |
+| **[pgloader](https://github.com/dimitri/pgloader)** | [![GitHub stars](https://img.shields.io/github/stars/dimitri/pgloader?style=social&color=white)](https://github.com/dimitri/pgloader/stargazers) | Common Lisp | PostgreSQL Licence | High-performance database migration tool that migrates whole databases (MySQL, SQLite, MS SQL) to PostgreSQL in a single automated command with schema and index translation. |
+| **[dlt (data load tool)](https://github.com/dlt-hub/dlt)** | [![GitHub stars](https://img.shields.io/github/stars/dlt-hub/dlt?style=social&color=white)](https://github.com/dlt-hub/dlt/stargazers) | Python | Apache-2.0 | Python-native data loading library that turns custom subscription API payloads and nested JSON exports into structured, typed relational tables with automatic schema inference. |
+| **[Kill Bill](https://github.com/killbill/killbill)** | [![GitHub stars](https://img.shields.io/github/stars/killbill/killbill?style=social&color=white)](https://github.com/killbill/killbill/stargazers) | Java / MySQL / PostgreSQL | Apache-2.0 | Battle-tested open-source subscription billing platform. Supports queuing pending plan modifications, migrating payment gateway tokens (Stripe, Braintree, Adyen), and restoring active recurring states via REST APIs. |
+| **[Meltano](https://github.com/meltano/meltano)** | [![GitHub stars](https://img.shields.io/github/stars/meltano/meltano?style=social&color=white)](https://github.com/meltano/meltano/stargazers) | Python | MIT | Declarative, code-first data integration engine built on the Singer standard. Manages extract-and-load pipelines as code for moving subscription data across databases and cloud endpoints. |
+| **[Singer](https://github.com/singer-io/getting-started)** | [![GitHub stars](https://img.shields.io/github/stars/singer-io/getting-started?style=social&color=white)](https://github.com/singer-io/getting-started/stargazers) | Python / JSON | Apache-2.0 | Open-source standard for composable ETL taps (sources) and targets (destinations). Allows piping customer records and billing event streams between different API taps and database sinks via Unix pipes. |
+| **[Loafer](https://github.com/georgeyk/loafer)** | [![GitHub stars](https://img.shields.io/github/stars/georgeyk/loafer?style=social&color=white)](https://github.com/georgeyk/loafer/stargazers) | Python / asyncio | MIT | Asynchronous message dispatcher for event-driven processing and queue migration. Frequently used in decoupled subscription architectures to ingest billing webhook events and message streams asynchronously. |
+| **[Bani](https://github.com/mugumedavid/bani)** | [![GitHub stars](https://img.shields.io/github/stars/mugumedavid/bani?style=social&color=white)](https://github.com/mugumedavid/bani/stargazers) | Python / Apache Arrow | Open Source | Modern cross-platform database migration engine using Apache Arrow columnar format. Performs schema and data migrations across MySQL, PostgreSQL, SQLite, and Oracle with declarative BDL files and CLI tools. |
 
 ---
 
 ## 📊 Comparison at a Glance
 
-| Software | License | Type | Subscription-Aware | Migration Focus | Self-Hosted | Best For |
-|----------|---------|------|---------------------|-----------------|-------------|----------|
-| **Chargebee Migration** | Proprietary | Billing migration | ✅ | ✅ Dedicated | ❌ | Chargebee-bound migration |
-| **AWS DMS** | Proprietary | Database migration | ❌ | ✅ Schema + data | ❌ | Database-level migration |
-| **CloudEndure/MGN** | Proprietary | Server migration | ❌ | ✅ Block-level | ❌ | Lift-and-shift servers |
-| **Fivetran** | Proprietary | ELT pipeline | ❌ | (Data movement) | ❌ | Automated warehouse replication |
-| **Matillion** | Proprietary | Agentic ETL | ❌ | ✅ ETL migration agent | ❌ | ETL pipeline migration |
-| **Hevo** | Proprietary | No-code pipeline | ❌ | (Data movement) | ❌ | No-code warehouse loading |
-| **Kill Bill** | Apache-2.0 | Billing platform | ✅ | (Migration primitives) | ✅ | Target platform + custom import |
-| **Airbyte** | MIT (core) | ELT platform | ❌ | (Data movement) | ✅ | Open-source connector-based extraction |
-| **Bani** | Open Source | Database migration | ❌ | ✅ Schema + data | ✅ | Relational database migration |
-| **Loafer** | Open Source | YAML ETL | ❌ | (Transformation) | ✅ | Lightweight declarative pipelines |
+| Tool | License | Type | Subscription Semantics | Continuous Replication (CDC) | Self-Hosted | Primary Migration Use Case |
+|---|---|---|:---:|:---:|:---:|---|
+| **AWS DMS** | Proprietary | Managed DB Service | ❌ | ✅ | ❌ | Live database schema and table migration to AWS Aurora / RDS |
+| **Informatica CDI** | Proprietary | Enterprise iPaaS / ETL | ❌ | ✅ | ❌ | Complex enterprise subscription transformations and ERP loading |
+| **Fivetran** | Proprietary | Automated Managed ELT | ❌ | ✅ | ❌ | Hands-off replication of billing SaaS APIs to data warehouses |
+| **Chargebee Services** | Proprietary | Vendor Migration Team | ✅ | ❌ | ❌ | Structured migration of recurring plans, coupons, and credit card tokens |
+| **Matillion** | Proprietary | Cloud Data Warehouse ETL | ❌ | ✅ | ❌ | Automated conversion of legacy ETL jobs and warehouse loading |
+| **Hevo Data** | Proprietary | Automated Data Pipeline | ❌ | ✅ | ❌ | Low-touch synchronization of billing events to data warehouses |
+| **Stitch Data** | Proprietary | Developer ELT | ❌ | ❌ | ❌ | Fast ingestion of raw Stripe / billing tables into cloud storage |
+| **Airbyte** | MIT / ELv2 | Modular ELT Engine | ❌ | ✅ | ✅ | Open-source extraction of subscription tables using community connectors |
+| **Debezium** | Apache-2.0 | Kafka-native CDC Engine | ❌ | ✅ | ✅ | Real-time zero-downtime streaming of billing database changes |
+| **Lago** | AGPL-3.0 | Subscription Billing Core | ✅ | ❌ | ✅ | Self-hosted destination platform for subscriptions, plans, and usage meters |
+| **Kill Bill** | Apache-2.0 | Enterprise Billing Core | ✅ | ❌ | ✅ | Open-source enterprise billing destination with plan change queueing |
+| **pgloader** | PostgreSQL Licence | Database Migration Tool | ❌ | ❌ | ✅ | Fast one-step migration of MySQL / SQLite subscription DBs to Postgres |
+| **dlt** | Apache-2.0 | Embedded Python ETL | ❌ | ❌ | ✅ | Programmatic conversion of nested billing JSON exports into SQL tables |
+| **Bani** | Open Source | Columnar DB Engine | ❌ | ❌ | ✅ | Direct Arrow-powered table migration between relational databases |
+
+---
+
+## 💡 Key Migration Strategies
+
+When transferring subscription, customer, and recurring billing data between platforms, consider the three core pillars:
+
+1. **Payment Token Portability (PCI-DSS Compliance):**  
+   Plain-text credit card numbers cannot be extracted from modern gateways. You must coordinate a PCI-compliant vault-to-vault token migration between payment processors (e.g., Stripe, Braintree, Adyen, Authorize.Net) before importing active subscription records.
+2. **Catalog & Plan Hierarchy Mapping:**  
+   Map pricing tiers, billing intervals (monthly, quarterly, annual), add-ons, and grace-period rules into the destination catalog schema before streaming customer states.
+3. **Mid-Cycle Proration & State Preservation:**  
+   Ensure that subscriptions imported into the new system are seeded with exact `current_period_start`, `current_period_end`, and `trial_end` timestamps to prevent premature charges or accidental invoice duplicates.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you know of an open-source Subscription Data Migration or Import tool that should be listed here, please open a pull request with:
+Contributions are very welcome! If you know of an open-source tool, data connector, or migration engine that should be included in this repository:
 
-- Project name and URL
-- Brief description (1–2 sentences)
-- Stack and license
-- Why it stands out
-
-Please ensure the project is actively maintained (releases within the last 12 months) and genuinely open-source. Note that the open-source ecosystem for **dedicated subscription data migration** is essentially nonexistent. The available tools fall into two categories: (1) **billing platforms** like Kill Bill that provide migration primitives but require you to build the import pipeline, and (2) **general-purpose data integration engines** like Airbyte, Bani, and Loafer that can move subscription records but lack billing-aware semantics (plan changes, proration, invoice relationships). Commercial services like Chargebee's Migration Team and AWS DMS remain the most complete options for structured subscription migration.
+1. Fork this repository.
+2. Add your project under the appropriate section with its name, URL, GitHub star badge, tech stack, and primary migration use case.
+3. Ensure the project is active (commits or releases within the last 12 months) and follows the established formatting.
+4. Submit a Pull Request!
 
 ---
 
 ## 📄 License
 
-This list is released under CC0 1.0 Universal (Public Domain). The software projects listed retain their respective licenses.
-
----
-
-⭐ **If this list helped you discover a useful tool, please star the repo!** ⭐
+This repository and curated list are licensed under [CC0 1.0 Universal (Public Domain)](file:///C:/Users/hp/Documents/Projects/Awesome-Subscription-Data-Migration-Import/LICENSE). Individual software projects retain their respective licenses.
