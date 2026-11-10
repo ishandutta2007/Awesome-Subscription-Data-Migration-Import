@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Awesome Subscription Data Migration Banner" width="100%" />
+  <img src="./assets/banner.svg" alt="Awesome Subscription Data Migration Banner" width="100%">
 </p>
 
 # 🚀 Awesome Subscription Data Migration & Import

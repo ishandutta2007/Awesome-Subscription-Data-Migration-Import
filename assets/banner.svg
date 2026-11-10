@@ -1,192 +1,176 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" height="100%">
   <defs>
-    <!-- Background Gradients -->
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0f1d" />
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c14" />
       <stop offset="50%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#060911" />
     </linearGradient>
 
-    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Radial Glow for Architecture Node Network -->
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Title Gradient -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#38bdf8" />
       <stop offset="50%" stop-color="#818cf8" />
       <stop offset="100%" stop-color="#c084fc" />
     </linearGradient>
 
-    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e293b" />
-      <stop offset="100%" stop-color="#0f172a" />
-    </linearGradient>
-
-    <linearGradient id="streamGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0284c7" />
-      <stop offset="50%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#818cf8" />
-    </linearGradient>
-
-    <linearGradient id="streamGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#818cf8" />
-      <stop offset="50%" stop-color="#c084fc" />
-      <stop offset="100%" stop-color="#f43f5e" />
-    </linearGradient>
-
-    <style>
-      .title-text {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 800;
-        font-size: 40px;
-        letter-spacing: -0.5px;
-      }
-      .subtitle-text {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 600;
-        font-size: 19px;
-        fill: #f1f5f9;
-      }
-      .desc-text {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-        fill: #94a3b8;
-      }
-      .pill-text {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 700;
-        font-size: 12px;
-      }
-      .badge-text {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 700;
-        font-size: 11px;
-        letter-spacing: 1px;
-      }
-
-      /* CSS animations */
-      @keyframes flowDash {
-        0% { stroke-dashoffset: 200; }
-        100% { stroke-dashoffset: 0; }
-      }
-      @keyframes pulseNode {
-        0%, 100% { opacity: 0.3; r: 3px; }
-        50% { opacity: 1; r: 6px; }
-      }
-      @keyframes floatParticle {
-        0%, 100% { transform: translateY(0px); opacity: 0.3; }
-        50% { transform: translateY(-12px); opacity: 0.9; }
-      }
-      @keyframes gridPulse {
-        0%, 100% { opacity: 0.08; }
-        50% { opacity: 0.22; }
-      }
-
-      .animated-stream {
-        stroke-dasharray: 12, 12;
-        animation: flowDash 4s linear infinite;
-      }
-      .pulsing-dot {
-        animation: pulseNode 3s ease-in-out infinite;
-      }
-      .floating-particle {
-        animation: floatParticle 5s ease-in-out infinite;
-      }
-      .grid-lines {
-        animation: gridPulse 6s ease-in-out infinite;
-      }
-    </style>
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="1" stroke-opacity="0.5" />
+    </pattern>
   </defs>
 
-  <!-- Background Canvas -->
-  <rect width="1200" height="360" fill="url(#bgGradient)" rx="16" />
+  <style>
+    /* CSS Animations for Dynamic Aspects */
+    @keyframes pulseGlow {
+      0% { transform: scale(0.98); opacity: 0.4; }
+      50% { transform: scale(1.04); opacity: 0.8; }
+      100% { transform: scale(0.98); opacity: 0.4; }
+    }
 
-  <!-- Ambient Background Glow Nodes (Pure Vector, No complex filters) -->
-  <circle cx="150" cy="80" r="130" fill="#0369a1" opacity="0.18" />
-  <circle cx="1060" cy="280" r="140" fill="#6d28d9" opacity="0.18" />
-  <circle cx="620" cy="340" r="100" fill="#4338ca" opacity="0.12" />
+    @keyframes scanBeam {
+      0% { transform: translateY(-100px); opacity: 0; }
+      30% { opacity: 0.6; }
+      70% { opacity: 0.6; }
+      100% { transform: translateY(320px); opacity: 0; }
+    }
 
-  <!-- Technical Circuit Grid -->
-  <g class="grid-lines" stroke="#38bdf8" stroke-width="0.75">
-    <line x1="80" y1="0" x2="80" y2="360" />
-    <line x1="200" y1="0" x2="200" y2="360" />
-    <line x1="320" y1="0" x2="320" y2="360" />
-    <line x1="440" y1="0" x2="440" y2="360" />
-    <line x1="560" y1="0" x2="560" y2="360" />
-    <line x1="680" y1="0" x2="680" y2="360" />
-    <line x1="800" y1="0" x2="800" y2="360" />
-    <line x1="920" y1="0" x2="920" y2="360" />
-    <line x1="1040" y1="0" x2="1040" y2="360" />
-    <line x1="1160" y1="0" x2="1160" y2="360" />
+    @keyframes nodeFloat {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(5px, -8px); }
+      100% { transform: translate(0, 0); }
+    }
 
-    <line x1="0" y1="60" x2="1200" y2="60" />
-    <line x1="0" y1="120" x2="1200" y2="120" />
-    <line x1="0" y1="180" x2="1200" y2="180" />
-    <line x1="0" y1="240" x2="1200" y2="240" />
-    <line x1="0" y1="300" x2="1200" y2="300" />
+    @keyframes dashMove {
+      to { stroke-dashoffset: -40; }
+    }
+
+    .glow-circle {
+      transform-origin: 920px 160px;
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+
+    .scanner-line {
+      animation: scanBeam 7s linear infinite;
+    }
+
+    .animated-node {
+      animation: nodeFloat 4s ease-in-out infinite;
+    }
+
+    .pulse-ring {
+      animation: dashMove 3s linear infinite;
+    }
+
+    .title-text {
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+      font-weight: 800;
+      font-size: 38px;
+      fill: url(#titleGrad);
+    }
+
+    .subtitle-text {
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      fill: #94a3b8;
+    }
+
+    .badge-tag {
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      fill: #38bdf8;
+    }
+  </style>
+
+  <!-- Base Canvas -->
+  <rect width="1200" height="320" fill="url(#bgGrad)" rx="12" />
+  <rect width="1200" height="320" fill="url(#grid)" rx="12" />
+
+  <!-- Dynamic Animated Scanline Beam (in Background) -->
+  <g opacity="0.4">
+    <line class="scanner-line" x1="0" y1="0" x2="1200" y2="0" stroke="#38bdf8" stroke-width="3" />
   </g>
 
-  <!-- Flowing Dynamic Streams -->
-  <g opacity="0.65">
-    <path class="animated-stream" d="M 40 80 C 260 20, 520 140, 840 50 C 980 10, 1080 80, 1160 60" fill="none" stroke="url(#streamGrad1)" stroke-width="2.5" />
-    <path class="animated-stream" d="M 40 300 C 260 340, 500 240, 780 310 C 940 350, 1060 280, 1160 300" fill="none" stroke="url(#streamGrad2)" stroke-width="2.5" />
+  <!-- Right Side Graphic: Data Pipeline & Token Vault Synchronization Hub -->
+  <g transform="translate(70, 0)">
+    <!-- Radial Ambient Glow -->
+    <circle class="glow-circle" cx="920" cy="160" r="160" fill="url(#glowGrad)" />
+
+    <!-- Outer Pulsing Orbit Rings -->
+    <circle class="pulse-ring" cx="920" cy="160" r="110" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.5" />
+    <circle cx="920" cy="160" r="80" fill="none" stroke="#818cf8" stroke-width="1" stroke-dasharray="4 4" opacity="0.6" />
+
+    <!-- Connecting Migration Signal Lines -->
+    <path d="M 840 115 L 920 160 L 1000 105 M 920 160 L 985 220 M 920 160 L 850 215" fill="none" stroke="#334155" stroke-width="2" />
+
+    <!-- Floating Node 1: Payment Vault -->
+    <g class="animated-node">
+      <circle cx="840" cy="115" r="6" fill="#38bdf8" />
+      <text x="755" y="100" class="badge-tag" font-size="11">Token Vault</text>
+    </g>
+
+    <!-- Floating Node 2: CDC Sync -->
+    <g class="animated-node" style="animation-delay: -1s;">
+      <circle cx="1000" cy="105" r="6" fill="#818cf8" />
+      <text x="990" y="90" class="badge-tag" font-size="11">Live CDC Sync</text>
+    </g>
+
+    <!-- Floating Node 3: Billing Catalog -->
+    <g class="animated-node" style="animation-delay: -2s;">
+      <circle cx="985" cy="220" r="6" fill="#c084fc" />
+      <text x="975" y="242" class="badge-tag" font-size="11">Plan Catalog</text>
+    </g>
+
+    <!-- Floating Node 4: Warehouses -->
+    <g class="animated-node" style="animation-delay: -3s;">
+      <circle cx="850" cy="215" r="6" fill="#4ade80" />
+      <text x="795" y="235" class="badge-tag" font-size="11">ELT &amp; ETL</text>
+    </g>
+
+    <!-- Center Migration Engine Hub -->
+    <g transform="translate(920, 160) scale(1.15)">
+      <!-- Outer Hex/Diamond Container -->
+      <polygon points="0,-32 28,-16 28,16 0,32 -28,16 -28,-16" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
+      <!-- Inner Exchange Arrows -->
+      <path d="M -12 -8 L 12 -8 M 6 -14 L 12 -8 L 6 -2" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 12 8 L -12 8 M -6 2 L -12 8 L -6 14" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
   </g>
 
-  <!-- Dynamic Animated Micro Particles -->
-  <circle class="floating-particle" cx="120" cy="110" r="3" fill="#38bdf8" />
-  <circle class="floating-particle" cx="290" cy="50" r="2.5" fill="#818cf8" />
-  <circle class="floating-particle" cx="950" cy="40" r="3" fill="#38bdf8" />
-  <circle class="floating-particle" cx="1090" cy="130" r="2.5" fill="#c084fc" />
-  <circle class="floating-particle" cx="1120" cy="270" r="3" fill="#818cf8" />
-  <circle class="floating-particle" cx="240" cy="320" r="2.5" fill="#38bdf8" />
+  <!-- Left Side Text (Foreground Content - Guaranteed Unobscured) -->
+  <g transform="translate(60, 0)">
+    <!-- Top Category Pill -->
+    <rect x="0" y="52" width="295" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-opacity="0.4" />
+    <text x="14" y="71" class="badge-tag">🔄 ZERO-DOWNTIME DATA MIGRATION</text>
 
-  <!-- Shadow Vector Layer for Foreground Card -->
-  <rect x="73" y="47" width="1054" height="266" rx="16" fill="#000000" opacity="0.55" />
+    <!-- Main Title -->
+    <text x="0" y="128" class="title-text">Awesome Subscription Migration</text>
 
-  <!-- Foreground Content Card -->
-  <rect x="70" y="44" width="1060" height="272" rx="16" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5" />
+    <!-- Subtitle -->
+    <text x="0" y="168" class="subtitle-text">Curated Database Replication, Change Data Capture,</text>
+    <text x="0" y="196" class="subtitle-text">Payment Token Portability &amp; Automated ELT Pipelines</text>
 
-  <!-- Corner Accents -->
-  <path d="M 70 74 L 70 44 L 100 44" fill="none" stroke="#38bdf8" stroke-width="2.5" />
-  <path d="M 1130 74 L 1130 44 L 1100 44" fill="none" stroke="#38bdf8" stroke-width="2.5" />
-  <path d="M 70 286 L 70 316 L 100 316" fill="none" stroke="#818cf8" stroke-width="2.5" />
-  <path d="M 1130 286 L 1130 316 L 1100 316" fill="none" stroke="#c084fc" stroke-width="2.5" />
+    <!-- Bottom Feature Tags -->
+    <g transform="translate(0, 228)">
+      <rect x="0" y="0" width="130" height="26" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="12" y="17" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="500">⚡ Real-time CDC</text>
 
-  <!-- Header Badges inside Card -->
-  <g transform="translate(105, 68)">
-    <rect width="250" height="26" rx="13" fill="#0284c7" fill-opacity="0.25" stroke="#38bdf8" stroke-width="1" />
-    <circle class="pulsing-dot" cx="14" cy="13" r="4.5" fill="#38bdf8" />
-    <text class="badge-text" x="27" y="17" fill="#e0f2fe">ZERO-DOWNTIME MIGRATION</text>
-  </g>
+      <rect x="140" y="0" width="130" height="26" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="152" y="17" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="500">🔒 Token Vaults</text>
 
-  <g transform="translate(370, 68)">
-    <rect width="230" height="26" rx="13" fill="#4f46e5" fill-opacity="0.25" stroke="#818cf8" stroke-width="1" />
-    <circle class="pulsing-dot" cx="14" cy="13" r="4.5" fill="#a5b4fc" />
-    <text class="badge-text" x="27" y="17" fill="#e0e7ff">ELT &bull; CDC &bull; BILLING APIS</text>
-  </g>
+      <rect x="280" y="0" width="140" height="26" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="292" y="17" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="500">🔄 Schema Drift</text>
 
-  <!-- Title & Subtitle in Foreground -->
-  <text class="title-text" x="105" y="142" fill="url(#textGrad)">Awesome Subscription Data Migration</text>
-  <text class="subtitle-text" x="105" y="180">Enterprise Database Replication, Billing Semantics &amp; Automated Ingestion</text>
-  <text class="desc-text" x="105" y="210">Curated architectures, token vaults (PCI-DSS), live CDC streams, schema mapping &amp; cloud data warehouses.</text>
-
-  <!-- Interactive / Informational Feature Pills along Bottom -->
-  <g transform="translate(105, 240)">
-    <!-- Pill 1 -->
-    <rect width="130" height="34" rx="8" fill="#0f172a" stroke="#0284c7" stroke-width="1" />
-    <text class="pill-text" x="65" y="21" fill="#38bdf8" text-anchor="middle">&#x26A1; Real-time CDC</text>
-
-    <!-- Pill 2 -->
-    <rect x="145" width="145" height="34" rx="8" fill="#0f172a" stroke="#6366f1" stroke-width="1" />
-    <text class="pill-text" x="217" y="21" fill="#a5b4fc" text-anchor="middle">&#x1F512; Token Vaults</text>
-
-    <!-- Pill 3 -->
-    <rect x="305" width="150" height="34" rx="8" fill="#0f172a" stroke="#a855f7" stroke-width="1" />
-    <text class="pill-text" x="380" y="21" fill="#e9d5ff" text-anchor="middle">&#x1F504; Schema Drift</text>
-
-    <!-- Pill 4 -->
-    <rect x="470" width="175" height="34" rx="8" fill="#0f172a" stroke="#059669" stroke-width="1" />
-    <text class="pill-text" x="557" y="21" fill="#6ee7b7" text-anchor="middle">&#x1F4CA; Proration Preserved</text>
-
-    <!-- Pill 5 -->
-    <rect x="660" width="145" height="34" rx="8" fill="#0f172a" stroke="#d97706" stroke-width="1" />
-    <text class="pill-text" x="732" y="21" fill="#fde68a" text-anchor="middle">&#x1F680; 700+ Connectors</text>
+      <rect x="430" y="0" width="160" height="26" rx="6" fill="#0f172a" stroke="#334155" />
+      <text x="442" y="17" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="500">📊 Proration Preserved</text>
+    </g>
   </g>
 </svg>
