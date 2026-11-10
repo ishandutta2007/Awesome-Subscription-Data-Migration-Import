@@ -64,7 +64,7 @@
 
 🛠️ Self-hosted, community-driven tools for migrating subscription data, running event-driven change data capture (CDC), executing columnar data transfers, or deploying an open-source billing core with native migration primitives.
 
-Repos are sorted in **descending order by GitHub Stars_Count**.
+Repos are sorted in **descending order by GitHub_Stars_Count**.
 
 | 📦 Project | ⭐ Stars_Badge | 💻 Primary Stack | 📜 License | 📝 Description & Migration Utility |
 |---|---|---|---|---|
@@ -137,7 +137,7 @@ Thank you so much for exploring and using this curated list! 🌟 If this reposi
 🤝 Contributions are very welcome! If you know of an open-source tool, data connector, or migration engine that should be included in this repository:
 
 1. 🍴 Fork this repository.
-2. 📝 Add your project under the appropriate section with its name, URL, GitHub Stars_Badge, tech stack, and primary migration use case.
+2. 📝 Add your project under the appropriate section with its name, URL, GitHub_Stars_Badge, tech stack, and primary migration use case.
 3. ✨ Ensure the project is active (commits or releases within the last 12 months) and follows the established formatting.
 4. 🚀 Submit a Pull Request!
 
